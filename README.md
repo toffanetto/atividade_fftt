@@ -1,1 +1,1 @@
-# atividade_fftt
+# atividade_fftt -- Template de atividades acadêmicas
