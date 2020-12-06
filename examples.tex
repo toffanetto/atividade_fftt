@@ -21,32 +21,9 @@
 \end{eqnarray*}
 
 %codigo fonte
-\begin{lstlisting}
-#include <Arduino.h>
+\begin{lstlisting}[language=Octave]
 
-const int led_onboard = 2;
-const int pin_botao = 1; 
-void setup() {
-    // Instrucao para colocar o GPIO que iremos utilizar como entrada,
-    // podemos fazer a leitura nesse pino
-    pinMode(pin_botao, INPUT);
- 
-    // Instrucao para colocar o GPIO que iremos utilizar como saida,
-    // podemos alterar seu valor livremente para HIGH ou LOW
-    pinMode(led_onboard, OUTPUT);
-}
 
-void loop() {
-  // faz a leitura do pino 1 (no nosso caso, o botao esta ligado nesse pino)
-   byte valor = digitalRead(pin_botao); 
-    // checa se o botao esta pressionado
-    if(valor == HIGH) {         
-       digitalWrite(led_onboard, LOW);  // Acende o LED onboard
-    } 
-   else {
-       digitalWrite(led_onboard, HIGH);  // Apaga o LED onboard
-    }
-}
 \end{lstlisting}
 
 

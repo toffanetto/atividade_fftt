@@ -10,7 +10,7 @@
 %  of this license document, but changing it is not allowed.                 %
 %                                                                            %
 % Author: Gabriel Toffanetto França da Rocha                                 %
-% GitHub:                                                                    %
+% GitHub: https://github.com/toffanetto/atividade_fftt                       %
 %                                                                            %
 %----------------------------------------------------------------------------%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -32,6 +32,7 @@
 \usepackage{geometry}
 \usepackage{tabto}
 \usepackage{color,soul}
+\usepackage{xcolor}
 \usepackage{mathrsfs}                                           % letras matematicas especiais
 \usepackage[linktoc=all]{hyperref}                              % link de pagina no sumário
 \usepackage{amsmath}                                            % recursos matemáticos
@@ -40,6 +41,7 @@
 \DeclareRobustCommand{\hlcyan}[1]{{\sethlcolor{cyan}\hl{#1}}}
 \usepackage[document]{ragged2e}
 \usepackage{listings}                                           % Ambiente para código fonte
+% \usepackage{mathptmx} % Times New Roman
 
 
 % --------------------------------------------------- %
@@ -135,4 +137,12 @@
     \begin{itemize}
         \item #1
     \end{itemize}
+}
+
+\newcommand{\espacamentoumemeio}{
+    \onehalfspacing
+}
+
+\newcommand{\timesnewroman}{
+    \usepackage{mathptmx} % Times New Roman
 }
