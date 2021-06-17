@@ -1,23 +1,39 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%% toffanetto %%%%%%%%%%%%%%%%%%%%
 % Template para atividades acadêmicas diversas    %
-% 2020                                            %
+% Init: 2020 -- Update: 2021                      %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass{atividade_fftt}
 
-%------------------------------------Dados sobre a atividade--------------------------------------%
-\def\Disciplina{Subject}                                     %disciplina
-\def\Professor{Teacher}                                      %professor
-\def\Titulo{Title}                                           %titulo
-\def\Autor{Gabriel Toffanetto França da Rocha -- 2019003646} %autor default
-%-------------------------------------------------------------------------------------------------%
+%----Dados sobre a atividade----%
+\def\Disciplina{Subject}                                     
+\def\Professor{Teacher}                                      
+\def\Titulo{Title}                                           
+\def\Autor{Gabriel Toffanetto França da Rocha -- 2019003646} 
+%-------------------------------%
+
+%%%%%%%%%%%%%%%%%
+% Configurações %
+%%%%%%%%%%%%%%%%%
 
 %\timesnewroman 
+%\arial
+%\latinmodern
+%\tracolista
+\pdfconfig
+
+
+%---------------
 
 \begin{document}
 
+%%%%%%%%%%%%%%%%%
+%   Estrutura   %
+%%%%%%%%%%%%%%%%%
+
 \cabecalho
+%\cabecalholite
 
 \autor
 \autor[O seu nome completo -- RA]
@@ -28,7 +44,9 @@
 
 \espacamentoumemeio
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Conteúdo da atividade %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%---------------
+
+%%%%%%%%%%%%%%% Conteúdo da atividade %%%%%%%%%%%%%%%
 
 %\corpo
 \section{Topico}
@@ -36,16 +54,18 @@
 
 
 
-% --------------------------------------------------------------------------------------------------
+%----------------------------------------------------
 % Citação extra, sem aparecer no texto
-%\nocite{mundo}
-% --------------------------------------------------------------------------------------------------
+
+%\nocite{autor}
+
+%----------------------------------------------------
 
 \bibliografia
 
 \end{document}
-% --------------------------------------------------------------------------------------------------
-%                                        Links uteis
+%----------------------------------------------------
+%                   Links uteis
 % http://www.tablesgenerator.com/                                              % tabela em latex
 % https://truben.no/latex/bibtex/                                              % referencias
 % https://www.overleaf.com/learn/latex/Inserting_Images                        % imagens
@@ -54,4 +74,4 @@
 % https://docx2latex.com/tutorials/MaTrix-LaTeX.html                           % matrizes
 % https://formulasheet.com/                                                    % matrizes
 % https://kogler.wordpress.com/2008/03/21/latex-multiline-equations-systems-and-matrices/
-% --------------------------------------------------------------------------------------------------
+%----------------------------------------------------
