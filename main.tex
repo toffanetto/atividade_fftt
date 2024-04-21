@@ -1,26 +1,34 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%% toffanetto %%%%%%%%%%%%%%%%%%%%
 % Template para atividades acadêmicas diversas    %
-% Init: 2020 -- Update: 2021                      %
+% Init: 2020 -- Update: 2024                      %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass{atividade_fftt}
 
 %----Dados sobre a atividade----%
-\def\Disciplina{Subject}                                     
+\def\Faculdade{Faculdade de Engenharia Mecânica}
+\def\Disciplina{Subject}   
+\def\DisciplinaCOD{XXXxx}                                     
 \def\Professor{Teacher}                                      
-\def\Titulo{Title}                                           
-\def\Autor{Gabriel Toffanetto França da Rocha -- 2019003646} 
+\def\Titulo{Title}                                          
+\def\TituloShort{Title}                                           
+\def\Autor{Gabriel Toffanetto França da Rocha -- 289320} 
 %-------------------------------%
 
 %%%%%%%%%%%%%%%%%
 % Configurações %
 %%%%%%%%%%%%%%%%%
 
+%% Text Font %%
 %\timesnewroman 
 %\arial
 %\latinmodern
-%\tracolista
+
+%% Using -- in itemize %%
+\tracolista
+
+%% PDF metadata setup %%
 \pdfconfig
 
 
@@ -32,24 +40,38 @@
 %   Estrutura   %
 %%%%%%%%%%%%%%%%%
 
-\cabecalho
+%\cabecalho
 %\cabecalholite
+%% Use alone for single author document %%
+\cabecalhoalone
+%\cabecalholitealone
 
+%% Author name | \Autor by default %%
 \autor
-\autor[O seu nome completo -- RA]
+%\autor[Aluno -- RA]
 
+%% Document title %%
 \titulo
+%\titulolite
 
-\sumario
+%% Insert List of Contents %%
+%\sumario
 
+%% Using one and halt spacing between lines %%
 \espacamentoumemeio
+
+%% Remove header and footer
+%\removeheader
 
 %---------------
 
 %%%%%%%%%%%%%%% Conteúdo da atividade %%%%%%%%%%%%%%%
 
-%\corpo
-\section{Topico}
+%% Include corpo.tex file with document body %%
+\corpo
+
+%\section{Topico}
+
 
 
 
@@ -61,13 +83,19 @@
 
 %----------------------------------------------------
 
+%% Add bibliography %%
 \bibliografia
+%\bibliografiaintext
+
+
+%% Add attachment %%
+\anexos
 
 \end{document}
 %----------------------------------------------------
 %                   Links uteis
 % http://www.tablesgenerator.com/                                              % tabela em latex
-% https://truben.no/latex/bibtex/                                              % referencias
+% http://truben.no/latex/bibtex/                                               % referencias
 % https://www.overleaf.com/learn/latex/Inserting_Images                        % imagens
 % https://www.overleaf.com/learn/latex/positioning_images_and_tables           % posicionamento
 % https://www.overleaf.com/learn/latex/List_of_Greek_letters_and_math_symbols  % simbolos gregos

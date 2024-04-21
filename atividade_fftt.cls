@@ -25,7 +25,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{atividade_fftt}[17/06/2021, v1]
+\ProvidesClass{atividade_fftt}[08/03/2024, v2]
 
 \PassOptionsToPackage{svgnames}{xcolor}
 \LoadClass[12pt, a4paper]{article}
@@ -45,12 +45,22 @@
 \usepackage{mathrsfs} % letras matematicas especiais
 \usepackage[linktoc=all]{hyperref} % link de pagina no sumário
 \usepackage{amsmath} % recursos matemáticos
+\usepackage{amssymb} % recursos matemáticos
 \usepackage{indentfirst} % Indenta o primeiro parágrafo de cada seção.
 \usepackage[alf]{abntex2cite} % Citações padrão ABNT
 \DeclareRobustCommand{\hlcyan}[1]{{\sethlcolor{cyan}\hl{#1}}}
 \usepackage[document]{ragged2e}
 \usepackage{listings} % Ambiente para código fonte
 \usepackage{multicol}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{svg} % SVG pictures include
+\usepackage{float} % H image float mode
+\usepackage{multirow} % Table cell merge
+\usepackage[makeroom]{cancel}
+\usepackage{fancyhdr}
+\usepackage{nameref}
+%\usepackage{refcheck} % Verify about not used labels
 
 
 
@@ -88,7 +98,10 @@
     showspaces=false,                
     showstringspaces=false,
     showtabs=false,                  
-    tabsize=2
+    tabsize=2,
+    inputencoding=utf8,
+    extendedchars=true,    
+    literate={á}{{\'a}}1 {Á}{{\'A}}1 {ã}{{\~a}}1 {â}{{\^{a}}}1 {Â}{{\^{A}}}1 {Ã}{{\~A}}1 {é}{{\'e}}1 {ê}{{\^e}}1 {É}{{\'E}}1 {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1 {í}{{\'i}}1 {ó}{{\'o}}1,
 }
 \lstset{style=default}
 
@@ -98,46 +111,151 @@
 
 \newcommand{\+}[1]{\ensuremath{\mathbf{#1}}} % comando para escrever matrizes em negrito \+A= A
 
-\geometry{top=2.5cm, bottom=2.5cm, right=2cm, left=2cm}
+\renewcommand{\lstlistingname}{Código}% Listing -> Código
+\renewcommand{\lstlistlistingname}{Lista de \lstlistingname s}% List of Listings -> Lista de Códigos
 
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname} % get section name
+\makeatother
+
+\makeatletter
+    \renewcommand*{\ps@plain}{%
+      \let\@mkboth\@gobbletwo
+      \let\@oddhead\@empty
+      \def\@oddfoot{%
+        \reset@font
+        \footnotesize{\Autor} % commented in case of more than one author
+        \hfil
+        \normalsize{\thepage}
+        % \hfil % removed for aligning to the right
+      }%
+      \let\@evenhead\@empty
+      \let\@evenfoot\@oddfoot
+    }
+\makeatother
+
+\geometry{top=2cm, bottom=2cm, right=2cm, left=2cm}
 
 % --------------------------------------------------- %
 %                     Comandos  	                  %
 % --------------------------------------------------- %
 
+% \header
+\newcommand{\header}{ 
+    \pagestyle{fancy}
+    \fancyhf{}
+    \fancyhead[L]{\footnotesize{\TituloShort}}
+    \fancyhead[C]{\footnotesize{Universidade Estadual de Campinas}}
+    \fancyhead[R]{\footnotesize{\DisciplinaCOD}}
+    }
+    
+% \removeheader
+\newcommand{\removeheader}{ 
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    }
+    
+% \footer
+\newcommand{\footer}{ 
+    \fancyfoot[R]{\thepage}
+    }
+    
+% \footerauthor
+\newcommand{\footerauthor}{ 
+    \fancyfoot[R]{\thepage}
+    \fancyfoot[L]{\footnotesize{\Autor}}
+    }
+    
 % \cabecalho
 \newcommand{\cabecalho}{ 
-    \begin{picture}(50,50)      %logo UNIFEI
-        \put(200,10){
-            \hbox{\includegraphics[scale=.5]{img/UNIFEI_LOGO.png}}
+    \thispagestyle{empty}
+    \header
+    \footer
+    
+    \begin{picture}(50,50)      %logo UNICAMP
+        \put(200,-30){
+            \hbox{\includegraphics[scale=.25]{img/core/logo_unicamp.pdf}}
     }
     \end{picture}
+
+    \vspace{1cm}
     
-    \center{\large{Universidade Federal de Itajubá}}
-    \center{\textit{Campus} Itabira}
+    \center{\large{Universidade Estadual de Campinas}} 
+    \center{\Faculdade}
     \justify
-    \noindent \Disciplina\\         %disciplina
-    \noindent \today\\             %data
-    \noindent Prof(a). \Professor \\  %professor
-    \noindent Aluno(s):         %autores
+     \noindent \textbf{\DisciplinaCOD \space -- \Disciplina}    \hfill \today \\    %disciplina \\ data
+    
+    \noindent Docente: \Professor \\  %professor
+    
+    \noindent Discentes:        %autores
     }
-    
+  
+% \cabecalholite  
 \newcommand{\cabecalholite}{ 
+    \thispagestyle{empty}
+    \header
+    \footer
     
-    \center{\Large{Universidade Federal de Itajubá}}
-    \center{\large{\textit{Campus} Itabira}}
+    \center{\Large{Universidade Estadual de Campinas}}
+    \center{\Faculdade}
     \justify
-    \noindent \Disciplina     \hfill \today\\    %disciplina
-    \noindent Prof(a). \Professor \\  %professor
-    \noindent Aluno(s):         %autores
+    \noindent \textbf{\DisciplinaCOD \space -- \Disciplina}    \hfill \today \\    %disciplina \\ data
+    \noindent Docente \Professor \\  %professor
+    \noindent Discentes:        %autores
     }
 
+% \cabecalhoalone
+\newcommand{\cabecalhoalone}{ 
+    \thispagestyle{empty}
+    \header
+    \footerauthor
+    
+    \begin{picture}(50,50)      %logo UNICAMP
+        \put(200,-30){
+            \hbox{\includegraphics[scale=.25]{img/core/logo_unicamp.pdf}}
+    }
+    \end{picture}
+
+    \vspace{1cm}
+    
+    \center{\large{Universidade Estadual de Campinas}}
+    \center{\Faculdade}
+    \justify
+     \noindent \textbf{\DisciplinaCOD \space -- \Disciplina}    \hfill \today \\    %disciplina \\ data
+    
+    \noindent Docente: \Professor \\  %professor
+    
+    \noindent Discente:        %autores
+    }
+    
+% \cabecalholitealone
+\newcommand{\cabecalholitealone}{ 
+    \thispagestyle{empty}
+    \header
+    \footerauthor
+    
+    \center{\Large{Universidade Estadual de Campinas}}
+    \center{\Faculdade}
+    \justify
+     \noindent \textbf{\DisciplinaCOD \space -- \Disciplina}    \hfill \today \\    %disciplina \\ data
+    \noindent Docente: \Professor \\  %professor
+    \noindent Discente:        %autores
+    }
+    
 % \titulo
 \newcommand{\titulo}{
     \vspace{.5cm}
 
     \center{\huge{\Titulo}}       %titulo
     \vspace{.3cm}
+    \noindent\rule{\textwidth}{0.2pt}
+    \justify
+}
+
+% \titulolite
+\newcommand{\titulolite}{
+
+    \center{\LARGE{\Titulo}}       %titulo
     \noindent\rule{\textwidth}{0.2pt}
     \justify
 }
@@ -151,8 +269,14 @@
 
 % \bibliografia
 \newcommand{\bibliografia}{
-    \newpage
+    \clearpage
+    \addcontentsline{toc}{section}{Referências} % para mostrar as referências no sumário
+    \thispagestyle{plain}
+    \bibliography{references.bib}
+}
 
+% \bibliografia in text
+\newcommand{\bibliografiaintext}{
     \addcontentsline{toc}{section}{Referências} % para mostrar as referências no sumário
     \bibliography{references.bib}
 }
@@ -208,13 +332,19 @@
 		pdfauthor={\Autor},
     	pdfsubject={\Disciplina},
 	    pdfcreator={LaTeX with Overleaf},
-		pdfkeywords={Toffanetto}, 
-		colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=black,          	% color of internal links
-    	citecolor=black,        		% color of links to bibliography
-    	filecolor=magenta,      		% color of file links
-		urlcolor=blue,
+		pdfkeywords={atividade_fftt}, 
+		colorlinks=true,       		        % false: boxed links; true: colored links
+    	linkcolor=black,          	        % color of internal links
+    	citecolor=black,        	        % color of links to bibliography
+    	filecolor=black,      	        % color of file links
+		urlcolor=black,
 		bookmarksdepth=4
 }
+}
+
+% \anexos
+\newcommand{\anexos}{
+    \clearpage
+    \include{anexos}
 }
 

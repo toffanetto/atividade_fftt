@@ -1,10 +1,10 @@
 %imagem
 
-\begin{figure}[!h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width = 11cm]{img/parabola.png}
-    \caption{Gráfico de Função Parábola (unitária) com $\alpha = \frac{1}{2}$ no intervalo $[0,10]$}
-    \label{fig:rampa}
+    \includegraphics[width = \textwidth]{img/familia_pid.jpg}
+    \caption{Comparação das respostas ao degrau das diferentes variações do compensador PID.}
+    \label{fig:familia}
     \begin{flushright}
         Confeccionado pelos autores (2021).
     \end{flushright}
@@ -13,78 +13,28 @@
 
 \begin{figure}[H]
     \centering
-    \caption{Período em função do comprimento.}
-    \includegraphics[width = 0.75\textwidth]{Figuras/Q3-1.jpeg}
-    \label{fig:Q03-1}
-\end{figure}
+    \includegraphics[width = \textwidth]{img/familia_pid.jpg}
+    \caption{Comparação das respostas ao degrau das diferentes variações do compensador PID.}
+    \label{fig:familia}
+\end{figure} 
 
-%equação varias linhas
-
-\begin{eqnarray*} \label{eq:py}
-    P_y &=& \lim_{t\to\infty} \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} [y(t)]^2 dt = \lim_{t\to\infty} \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} [A_1.\cos{(\omega_1.t + \theta_1)}+A_2.\cos{(\omega_2.t + \theta_2)}]^2 dt \\
-     &=& \lim_{t\to\infty} \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} A_1^2 \cos^2(\omega_1.t+\theta_1) dt + \lim_{t\to\infty} \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} A_2^2 \cos^2(\omega_2.t+\theta_2) dt \\
-    && + \lim_{t\to\infty} \frac{2A_1A_2}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}}  \cos(\omega_1t+\theta_1) \cos(\omega_2t + \theta_2) dt \\
-     &=& \lim_{t\to\infty} \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} A_1^2 \cos^2(\omega_1.t+\theta_1) dt + \lim_{t\to\infty} \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} A_2^2 \cos^2(\omega_2.t+\theta_2) dt \\
-    &=& \lim_{t\to\infty} \frac{A_1^2}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} \cos^2(\omega_1.t+\theta_1) dt + \lim_{t\to\infty} \frac{A_2^2}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} \cos^2(\omega_2.t+\theta_2) dt 
-\end{eqnarray*}
-
-%codigo fonte
+% codigo fonte
 \begin{lstlisting}[language=Octave]
-
-
+std::cout << "Hello wordl" << std::endl;
 \end{lstlisting}
 
+\lstinputlisting[language=Octave]{img/atividade3.m}
 
-% código fonte _____________________________________________________
-\usepackage{listings}           % Ambiente para código fonte
-
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,1,0.95}
-
-\lstdefinestyle{default}{
-    backgroundcolor=\color{backcolour},   
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{magenta},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-    basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2
-}
-\lstset{style=default}
-
-%__________________________________________________________________
 
 %sistema linear
 \begin{equation*}
      \begin{cases} 
         x+2y+z = 8\\ 
-        2x-y+z=3\\ 
-        3x+y-z=2 
+        2x-y+z = 3\\ 
+        3x+y-z = 2 
     \end{cases}   
 \end{equation*}
 
-%referencia livro
-
-@book{thelma,
-  title={Comunicação e linguagem},
-  author={Thelma de Carvalho GUIMARÃES},
-  year={2012},
-  address = "Sao Paulo",
-  publisher={Pearson Education do Brasil},
-  % url = ,
-  
-}
 
 %%% MULTI COLUNAS %%%%
 
@@ -93,3 +43,31 @@
 %text
 
 \end{multicols}
+
+%%% SUBFIGURE %%%
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[H]{0.4\textwidth}
+        \includegraphics[width = \textwidth]{img/circuit1.png}
+        \caption{Circuito.}
+        \label{fig:circuito1}
+    \end{subfigure}
+     \begin{subfigure}[H]{0.5\textwidth}
+        \centering
+        \includegraphics[width = \textwidth]{img/pequenos_sinais.jpg}
+        \caption{Modelo de pequenos sinais para o circuito.}
+        \label{fig:pequenossinais}
+     \end{subfigure}
+\end{figure}
+
+%%% VECTOR IMAGE %%%
+
+\begin{figure}[H]
+        \centering
+        \footnotesize
+        \includesvg[width = 0.9\textwidth]{img/GQ1.svg}
+        \normalsize
+        \caption{ Gráfico que representa o comportamento de ft x VGS}
+        \label{fig:steptemp}
+\end{figure}
