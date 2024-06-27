@@ -333,11 +333,11 @@
     	pdfsubject={\Disciplina},
 	    pdfcreator={LaTeX with Overleaf},
 		pdfkeywords={atividade_fftt}, 
-		colorlinks=true,       		        % false: boxed links; true: colored links
-    	linkcolor=black,          	        % color of internal links
-    	citecolor=black,        	        % color of links to bibliography
-    	filecolor=black,      	        % color of file links
-		urlcolor=black,
+		colorlinks=true,       	
+            linkcolor=black,
+            filecolor=black,      
+            urlcolor=cyan,      
+            citecolor=black,
 		bookmarksdepth=4
 }
 }
