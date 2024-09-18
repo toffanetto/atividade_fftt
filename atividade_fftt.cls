@@ -25,7 +25,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{atividade_fftt}[08/03/2024, v2]
+\ProvidesClass{atividade_fftt}[18/09/2024, v3]
 
 \PassOptionsToPackage{svgnames}{xcolor}
 \LoadClass[12pt, a4paper]{article}
@@ -60,6 +60,8 @@
 \usepackage[makeroom]{cancel}
 \usepackage{fancyhdr}
 \usepackage{nameref}
+\usepackage{algorithm}
+\usepackage{algpseudocode} 
 %\usepackage{refcheck} % Verify about not used labels
 
 
@@ -111,7 +113,10 @@
 
 \newcommand{\+}[1]{\ensuremath{\mathbf{#1}}} % comando para escrever matrizes em negrito \+A= A
 
+\renewcommand{\ALG@name}{Algoritmo}% Algorithm -> Algoritmo
+
 \renewcommand{\lstlistingname}{Código}% Listing -> Código
+
 \renewcommand{\lstlistlistingname}{Lista de \lstlistingname s}% List of Listings -> Lista de Códigos
 
 \makeatletter
@@ -342,9 +347,9 @@
 }
 }
 
-% \anexos
-\newcommand{\anexos}{
+% \apendices
+\newcommand{\apendices}{
     \clearpage
-    \include{anexos}
+    \include{apendices}
 }
 
