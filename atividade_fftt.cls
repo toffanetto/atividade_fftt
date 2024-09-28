@@ -251,7 +251,7 @@
 \newcommand{\titulo}{
     \vspace{.5cm}
 
-    \center{\huge{\Titulo}}       %titulo
+    \center{\huge{\Titulo}\par}       %titulo
     \vspace{.3cm}
     \noindent\rule{\textwidth}{0.2pt}
     \justify
