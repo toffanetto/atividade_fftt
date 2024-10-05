@@ -35,62 +35,65 @@
 %---------------
 
 \begin{document}
-
-%%%%%%%%%%%%%%%%%
-%   Estrutura   %
-%%%%%%%%%%%%%%%%%
-
-%\cabecalho
-%\cabecalholite
-%% Use alone for single author document %%
-\cabecalhoalone
-%\cabecalholitealone
-
-%% Author name | \Autor by default %%
-\autor
-%\autor[Aluno -- RA]
-
-%% Document title %%
-\titulo
-%\titulolite
-
-%% Insert List of Contents %%
-\sumario
-
-%% Using one and halt spacing between lines %%
-\espacamentoumemeio
-
-%% Remove header and footer
-%\removeheader
-
-%---------------
-
-%%%%%%%%%%%%%%% Conteúdo da atividade %%%%%%%%%%%%%%%
-
-%% Include corpo.tex file with document body %%
-\corpo
-
-%\section{Topico}
-
-
-
-
-
-%----------------------------------------------------
-% Citação extra, sem aparecer no texto
-
-%\nocite{autor}
-
-%----------------------------------------------------
-
-%% Add bibliography %%
-\bibliografia
-%\bibliografiaintext
-
-
-%% Add attachment %%
-\apendices
-
+	
+	%%%%%%%%%%%%%%%%%
+	%   Estrutura   %
+	%%%%%%%%%%%%%%%%%
+	
+	%\cabecalho
+	%\cabecalholite
+	%% Use alone for single author document %%
+	\cabecalhoalone
+	%\cabecalholitealone
+	
+	%% Author name | \Autor by default %%
+	\autor
+	%\autor[Aluno -- RA]
+	
+	%% Document title %%
+	\titulo
+	%\titulolite
+	
+	%% Insert List of Contents %%
+	\sumario
+	
+	%% Using one and halt spacing between lines %%
+	\espacamentoumemeio
+	
+	%% Remove header and footer
+	%\removeheader
+	
+	%---------------
+	
+	%%%%%%%%%%%%%%% Conteúdo da atividade %%%%%%%%%%%%%%%
+	
+	%% Include corpo.tex file with document body %%
+	\include{corpo}
+	
+	%\section{Topico}
+	
+	
+	
+	
+	
+	%----------------------------------------------------
+	% Citação extra, sem aparecer no texto
+	
+	%\nocite{autor}
+	
+	%----------------------------------------------------
+	
+	%% Add bibliography %%
+	\clearpage
+	\addcontentsline{toc}{section}{Referências} % para mostrar as referências no sumário
+	\thispagestyle{plain}
+	\bibliography{references.bib}
+	
+	
+	%% Add attachment %%
+	\clearpage
+	\include{apendices}
+	
 \end{document}
 %----------------------------------------------------
 %                   Links uteis
