@@ -42,6 +42,8 @@
 \usepackage{tabto}
 \usepackage{color,soul}
 \usepackage{xcolor}
+\usepackage{fixltx2e}
+\usepackage[bottom]{footmisc}
 \usepackage{mathrsfs} % letras matematicas especiais
 \usepackage[linktoc=all]{hyperref} % link de pagina no sumário
 \usepackage{amsmath} % recursos matemáticos
@@ -62,6 +64,7 @@
 \usepackage{nameref}
 \usepackage{algorithm}
 \usepackage{algpseudocode} 
+\usepackage{mathtools}
 %\usepackage{refcheck} % Verify about not used labels
 
 
